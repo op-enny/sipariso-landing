@@ -1,0 +1,16 @@
+export { Header } from "./Header";
+export { Hero } from "./Hero";
+export { Problem } from "./Problem";
+export { Solution } from "./Solution";
+export { TargetAudience } from "./TargetAudience";
+export { Features } from "./Features";
+export { SavingsComparison } from "./SavingsComparison";
+export { Pricing } from "./Pricing";
+export { Testimonials } from "./Testimonials";
+export { HowItWorks } from "./HowItWorks";
+export { Clarifications } from "./Clarifications";
+export { ComingSoon } from "./ComingSoon";
+export { Guarantee } from "./Guarantee";
+export { FAQ } from "./FAQ";
+export { FinalCTA } from "./FinalCTA";
+export { Footer } from "./Footer";

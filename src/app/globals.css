@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ========== SIPARISO DESIGN SYSTEM ========== */
+
+@theme {
+  /* Primary Blues */
+  --color-primary-500: #0466c8;
+  --color-primary-600: #0353a4;
+  --color-primary-700: #023e7d;
+  --color-primary-800: #002855;
+  --color-primary-900: #001845;
+  --color-primary-950: #001233;
+
+  /* Neutral Grays (blue-tinted) */
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #f1f2f4;
+  --color-gray-200: #e2e4e9;
+  --color-gray-300: #b8bcc8;
+  --color-gray-400: #979dac;
+  --color-gray-500: #7d8597;
+  --color-gray-600: #5c677d;
+  --color-gray-700: #33415c;
+
+  /* Accent - Amber Gold */
+  --color-accent-400: #ffd43b;
+  --color-accent-500: #ffbe0b;
+  --color-accent-600: #e5ab00;
+
+  /* Semantic Colors */
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-warning-500: #f59e0b;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  /* Font Family */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-gray-600);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-gray-700);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-500);
+  color: white;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background: var(--color-gray-200);
+  margin: 0 auto;
+}
+
+/* Hand-drawn element base styles */
+.hand-drawn {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ========== SECTION GRADIENTS ========== */
+
+/* Blue gradient - for solution, features, how it works */
+.bg-gradient-blue {
+  background: linear-gradient(180deg, #bfdbfe 0%, #dbeafe 50%, #eff6ff 100%);
+}
+
+/* Warm gradient - for testimonials, target audience */
+.bg-gradient-warm {
+  background: linear-gradient(180deg, #fde68a 0%, #fef3c7 50%, #fffbeb 100%);
+}
+
+/* Red/warning gradient - for problem section */
+.bg-gradient-problem {
+  background: linear-gradient(180deg, #fecaca 0%, #fee2e2 50%, #fef2f2 100%);
+}
+
+/* Green gradient - for guarantee */
+.bg-gradient-success {
+  background: linear-gradient(180deg, #a7f3d0 0%, #d1fae5 50%, #ecfdf5 100%);
+}
+
+/* Primary gradient - for CTA sections */
+.bg-gradient-cta {
+  background: linear-gradient(180deg, #93c5fd 0%, #bfdbfe 50%, #dbeafe 100%);
+}
+
+/* Pricing gradient */
+.bg-gradient-pricing {
+  background: linear-gradient(180deg, #c7d2fe 0%, #e0e7ff 50%, #eef2ff 100%);
 }
