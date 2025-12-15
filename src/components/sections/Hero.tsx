@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -8,7 +9,22 @@ import { Arrow } from "@/components/decorative/Arrow";
 
 const CALENDLY_URL = "https://calendly.com/rbxn36/sipariso-kennenlernen";
 
+const heroImages = [
+  { src: "/hero-image1.png", rotation: "rotate-3" },
+  { src: "/hero-image2.png", rotation: "-rotate-2" },
+  { src: "/hero-image3.png", rotation: "rotate-[5deg]" },
+];
+
 export function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const openCalendly = () => {
     window.open(CALENDLY_URL, "_blank");
   };
@@ -81,15 +97,26 @@ export function Hero() {
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10 rounded-3xl transform rotate-3" />
 
-              {/* Image container */}
-              <div className="relative bg-gray-100 rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl rotate-3">
-                <Image
-                  src="/hero-image1.png"
-                  alt="Sipariso - Restaurant Bestellsystem"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+              {/* Image slider container */}
+              <div className="relative aspect-[4/5]">
+                {heroImages.map((image, index) => (
+                  <div
+                    key={image.src}
+                    className={`absolute inset-0 bg-gray-100 rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 ease-in-out ${image.rotation} ${
+                      index === currentIndex
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-95"
+                    }`}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={`Sipariso - Restaurant Bestellsystem ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
               </div>
 
               {/* Floating stats card */}
